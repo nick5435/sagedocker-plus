@@ -45,8 +45,11 @@ sudo -H -E -u sage ./sage -i gap_packages
 sudo -H -E -u sage ./sage -i gap_jupyter
 sudo -H -E -u sage ./sage -i jupyterlab
 sudo -H -E -u sage ./sage -i jupyterlab_widgets
+sudo -H -E -u sage ./sage -i r_jupyter
+sudo -H -E -u sage ./sage -i singular_kernel
 sudo -H -E -u sage ./sage -i kenzo
 sudo -H -E -u sage ./sage -i libsemigroups
+sudo -H -E -u sage ./sage -i surface_dynamics
 
 # Clean up artifacts from the sage build that we don't need for runtime or
 # running the tests
