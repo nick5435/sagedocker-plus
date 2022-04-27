@@ -1,5 +1,7 @@
-SageMath Docker Image
+SageMath-Plus Docker Image
 =====================
+
+Based on `computop/sage` by Nathan M. Dunfield.
 
 This is an attempt to standardize and streamline computational work
 that combines SnapPy, SageMath, and friends via a custom `Docker
@@ -19,15 +21,15 @@ it compiles SageMath from source, and weighs in at 5.2 GB (1.6
 GB compressed). We recommend you use the `posted image
 <http://hub.docker.com/r/computop/sage/>`_ on DockerHub via::
 
-  docker pull computop/sage
-  docker run -it computop/sage
+  docker pull nick5435/sage-plus
+  docker run -it nick5435/sage-plus
 
 Here, the first command downloads the image from DockerHub and the
 second starts a container that is running said image.  Moving files
 between the container and the rest of the world can be done using
 ``scp`` or having the container mount a local directory as in this example::
 
-  docker run -it --mount type=bind,source="$HOME/Dropbox/linux_share",target=/home/sage/linux_share computop/sage
+  docker run -it --mount type=bind,source="$HOME/Dropbox/linux_share",target=/home/sage/linux_share nick5435/sage-plus
 
 where the directory ``linux_share`` inside the user's ``Dropbox`` folder is
 shared.
@@ -35,7 +37,7 @@ shared.
 If you want to use Sage's Jupyter notebook interface, start the
 container via::
 
-  docker run -it -p 127.0.0.1:8888:8888 computop/sage
+  docker run -it -p 127.0.0.1:8888:8888 nick5435/sage-plus sageplus
 
 and in said container type::
 
@@ -59,7 +61,7 @@ and those for SageMath 9.0 and newer use Python 3 (and Ubuntu 18.04 or
 20.04).  You can always request Docker run a particular version of the image,
 for example if you want SageMath 8.9 do::
 
-  docker run -it computop/sage:8.9
+  docker run -it nick5435/sage:8.9
 
 Components
 ==========
@@ -89,11 +91,11 @@ Building
 To build from scratch, which takes 1.3 hours using all 8 cores on a Mac
 Pro::
 
-  docker build --tag=computop/sage sage
+  docker build --tag=nick5435/sage-plus sageplus
 
 If compiling Sage fails, make sure the Docker application is
 configured so that it can use at least 4GB of memory.
 
 Put out on DockerHub::
 
-  docker push computop/sage
+  docker push nick5435/sage-plus

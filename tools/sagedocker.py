@@ -3,7 +3,7 @@ import pexpect
 import webbrowser
 
 print('Launching a Jupyter server.\n')
-command = 'docker run -p 8888:8888 -e SAGE_ROOT=/sage computop/sage /sage/src/bin/sage --notebook=jupyter --ip=0.0.0.0'
+command = 'docker run -p 8888:8888 -e SAGE_ROOT=/sage nick5435/sage-plus /sage/src/bin/sage --notebook=jupyter --ip=0.0.0.0'
 
 proc = pexpect.spawn(command)
 output = ''
